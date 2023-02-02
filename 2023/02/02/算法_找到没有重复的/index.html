@@ -5,17 +5,17 @@
   
 
   
-  <title>随机森林 | y的博客</title>
+  <title>有序数组，每个数成对出现，其中有一个数只出现一次，logn查找这个数 | y的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义随机森林是一种采用了bagging方法(一种集成方法)将决策树模型集成起来的集成模型。随机森林的重点主要：多颗决策树的生成、如何随机、如何将多棵树集成 随机方法 数据随机随机森林会并行地生成很多棵决策树，每棵决策树的训练数据都是从整体数据中随机选择部分数据。 特征随机为了最后训练决策树之间的差异性变大，除了数据随机之外，决策树还加了一个特征随机，每个决策树的训练都只采用了部分的特征。  森林的">
+  <meta name="description" content="题目：已知一个有序数组，每个数成对出现，其中有一个数只出现一次，用时间复杂度logn查找这个数例如：a&#x3D;[1,1,3,3,4,4,5,5,6,6,7,  10,10,12,12,15,15,19,19,20,20,23,23,33,33,45,45,78,78,90,90,91,91]输出7a&#x3D;[1,1,3,3,4,4,5,5,6,6,7,7,10,10,12,12,15,15,19,19,20,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随机森林">
-<meta property="og:url" content="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/index.html">
+<meta property="og:title" content="有序数组，每个数成对出现，其中有一个数只出现一次，logn查找这个数">
+<meta property="og:url" content="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/index.html">
 <meta property="og:site_name" content="y的博客">
-<meta property="og:description" content="定义随机森林是一种采用了bagging方法(一种集成方法)将决策树模型集成起来的集成模型。随机森林的重点主要：多颗决策树的生成、如何随机、如何将多棵树集成 随机方法 数据随机随机森林会并行地生成很多棵决策树，每棵决策树的训练数据都是从整体数据中随机选择部分数据。 特征随机为了最后训练决策树之间的差异性变大，除了数据随机之外，决策树还加了一个特征随机，每个决策树的训练都只采用了部分的特征。  森林的">
+<meta property="og:description" content="题目：已知一个有序数组，每个数成对出现，其中有一个数只出现一次，用时间复杂度logn查找这个数例如：a&#x3D;[1,1,3,3,4,4,5,5,6,6,7,  10,10,12,12,15,15,19,19,20,20,23,23,33,33,45,45,78,78,90,90,91,91]输出7a&#x3D;[1,1,3,3,4,4,5,5,6,6,7,7,10,10,12,12,15,15,19,19,20,">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-30T11:50:28.000Z">
-<meta property="article:modified_time" content="2023-02-02T07:33:39.521Z">
+<meta property="article:published_time" content="2023-02-02T11:50:28.000Z">
+<meta property="article:modified_time" content="2023-02-02T12:01:44.489Z">
 <meta property="article:author" content="y">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-随机森林" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-算法_找到没有重复的" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" class="article-date">
-  <time datetime="2023-01-30T11:50:28.000Z" itemprop="datePublished">2023-01-30</time>
+    <a href="/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" class="article-date">
+  <time datetime="2023-02-02T11:50:28.000Z" itemprop="datePublished">2023-02-02</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      随机森林
+      有序数组，每个数成对出现，其中有一个数只出现一次，logn查找这个数
     </h1>
   
 
@@ -89,17 +89,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>随机森林是一种采用了bagging方法(一种集成方法)将决策树模型集成起来的集成模型。随机森林的重点主要：多颗决策树的生成、如何随机、如何将多棵树集成</p>
-<h1 id="随机方法"><a href="#随机方法" class="headerlink" title="随机方法"></a>随机方法</h1><ol>
-<li>数据随机<br>随机森林会并行地生成很多棵决策树，每棵决策树的训练数据都是从整体数据中随机选择部分数据。</li>
-<li>特征随机<br>为了最后训练决策树之间的差异性变大，除了数据随机之外，决策树还加了一个特征随机，每个决策树的训练都只采用了部分的特征。</li>
+        <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p>已知一个有序数组，每个数成对出现，其中有一个数只出现一次，用时间复杂度logn查找这个数<br>例如：<br>a=[1,1,3,3,4,4,5,5,6,6,7,  10,10,12,12,15,15,19,19,20,20,23,23,33,33,45,45,78,78,90,90,91,91]<br>输出7<br>a=[1,1,3,3,4,4,5,5,6,6,7,7,10,10,12,12,15,15,19,19,20,20,23,23,33,   45,45,78,78,90,90,91,91]<br>输出33</p>
+<p>分析：普通算法一般时间复杂度是n， 那么如何才能达到logn的时间复杂度。可以通过类似二分查找法</p>
+<p>二分查找思想：</p>
+<p>取中间三个数，如果三个数都不相等，那中间那个数有一定是要找的数。例如：<br>a1= [0,0,1,1,3, 3,4,5, 5,6,6,7,7]</p>
+<p>如果中间三个数A1A2A3（4,4,5），A1A2相等,</p>
+<ol>
+<li>A1前面有偶数个元素，那么要查找找的数据一定在后半部分<br>a2= [0,0,1,3,3, 4,4,5, 5,6,6,7,7]</li>
+<li>A1前面有奇数个元素，那么要查找找的数据一定在前半部分<br>a2= [1,1,3,     4,4,5, 5,6,6]</li>
 </ol>
-<h1 id="森林的生成"><a href="#森林的生成" class="headerlink" title="森林的生成"></a>森林的生成</h1><p>随机森林是采用bagging的方法将多棵决策树结果线性加权起来，各棵树中的训练数据和特征都是从总体数据和特征中随机抽取的。</p>
+<p>如果中间三个数A1A2A3（4,5,5），A2A3相等,</p>
+<ol>
+<li>A1前面有奇数个元素，那么要查找找的数据一定在后半部分<br>a2= [0,0,1,1,4, 4,5,5, 6,6,7,7,8,8]</li>
+<li>A1前面有偶数个元素，那么要查找找的数据一定在前半部分<br>a2=[0,0,1,4, 4,5,5, 6,6,7,7]</li>
+</ol>
+<p>算法：</p>
+<pre><code>def find_only(input_lists, min, max):
+    mid = int((min+max)/2)
+    mid_little = mid-1
+    mid_bigger = mid+1
+    if min == max:
+        return input_lists[min]
+    if (input_lists[mid_little] != input_lists[mid]) and (input_lists[mid_bigger] != input_lists[mid]):
+        return input_lists[mid]
+    elif input_lists[mid_bigger] == input_lists[mid]:
+        if (max-mid) % 2 == 1:
+            return find_only(input_lists, min, mid_bigger)
+        else:
+            return find_only(input_lists, mid, max)
+    elif input_lists[mid_little] == input_lists[mid]:
+        if (mid-min) % 2 == 0:
+            return find_only(input_lists, min, mid)
+        else:
+            return find_only(input_lists, mid_little, max)
+    else:
+        return -1
+
+max = len(a)-1
+result = find_only(a, 0, max)
+print(f&quot;查找：&#123;result&#125;&quot;)
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="cldn1swro00054kvfalyvdczm" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" data-id="cldn1swrn00044kvfhwb903ck" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -110,19 +144,10 @@
     
 <nav id="article-nav">
   
-    <a href="/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          决策树简介
-        
-      </div>
-    </a>
   
-  
-    <a href="/y/2022/11/15/python%E4%B9%8Bsocket/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/y/2023/01/30/RSA/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">python之socket</div>
+      <div class="article-nav-title">RSA</div>
     </a>
   
 </nav>
