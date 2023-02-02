@@ -133,10 +133,54 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="cldmslhyp0000lwvf8lpe5i55" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="cldmsqv6q000068vf2hwmez0s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-随机森林" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" class="article-date">
+  <time datetime="2023-01-30T11:50:28.000Z" itemprop="datePublished">2023-01-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">随机森林</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>随机森林是一种采用了bagging方法(一种集成方法)将决策树模型集成起来的集成模型。随机森林的重点主要：多颗决策树的生成、如何随机、如何将多棵树集成</p>
+<h1 id="随机方法"><a href="#随机方法" class="headerlink" title="随机方法"></a>随机方法</h1><ol>
+<li>数据随机<br>随机森林会并行地生成很多棵决策树，每棵决策树的训练数据都是从整体数据中随机选择部分数据。</li>
+<li>特征随机<br>为了最后训练决策树之间的差异性变大，除了数据随机之外，决策树还加了一个特征随机，每个决策树的训练都只采用了部分的特征。</li>
+</ol>
+<h1 id="森林的生成"><a href="#森林的生成" class="headerlink" title="森林的生成"></a>森林的生成</h1><p>随机森林是采用bagging的方法将多棵决策树结果线性加权起来，各棵树中的训练数据和特征都是从总体数据和特征中随机抽取的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="cldmsqv6y000368vf06jyhopl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
 
     </footer>
   </div>
@@ -200,51 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="cldmslhzf0006lwvf4wpeehl7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-随机森林" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" class="article-date">
-  <time datetime="2023-01-30T11:50:28.000Z" itemprop="datePublished">2023-01-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">随机森林</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>随机森林是一种采用了bagging方法(一种集成方法)将决策树模型集成起来的集成模型。随机森林的重点主要：多颗决策树的生成、如何随机、如何将多棵树集成</p>
-<h1 id="随机方法"><a href="#随机方法" class="headerlink" title="随机方法"></a>随机方法</h1><ol>
-<li>数据随机<br>随机森林会并行地生成很多棵决策树，每棵决策树的训练数据都是从整体数据中随机选择部分数据。</li>
-<li>特征随机<br>为了最后训练决策树之间的差异性变大，除了数据随机之外，决策树还加了一个特征随机，每个决策树的训练都只采用了部分的特征。</li>
-</ol>
-<h1 id="森林的生成"><a href="#森林的生成" class="headerlink" title="森林的生成"></a>森林的生成</h1><p>随机森林是采用bagging的方法将多棵决策树结果线性加权起来，各棵树中的训练数据和特征都是从总体数据和特征中随机抽取的。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="cldmslhzg0007lwvf0xhs7o3u" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="cldmsqv6z000468vfdk511ho0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -328,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="cldmslhyu0001lwvfc9yo2pel" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="cldmsqv6v000168vfb6k0gfou" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -389,11 +389,11 @@
           </li>
         
           <li>
-            <a href="/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/">决策树简介</a>
+            <a href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">随机森林</a>
           </li>
         
           <li>
-            <a href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">随机森林</a>
+            <a href="/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/">决策树简介</a>
           </li>
         
           <li>
