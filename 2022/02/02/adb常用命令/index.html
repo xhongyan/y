@@ -5,22 +5,20 @@
   
 
   
-  <title>RSA | y的博客</title>
+  <title>adb常用命令 | y的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、简介1977年，三位数学家Rivest、Shamir 和 Adleman 设计了一种算法，可以实现非对称加密。这种算法用他们三个人的名字命名，叫做RSA算法RSA通途：1、用于加密（公钥加密、私钥解密），而且主要用于加密对称密钥，因为RSA加解密较慢。2、用于数字签名。私钥签名，公钥签名验证 二、算法原理RSA公开密钥密码体制的原理是：根据数论，寻求两个大素数比较简单，而将它们的乘积进行因式分">
+  <meta name="description" content="adb查看手机包的信息adb shell dumpsys package packagename  获取安卓某个手机当前窗口焦点信息adb shell dumpsys window | findstr mCurrentFocus  判断当前包是否启动adb shell ps -A|findstr 包名  获取activity:aapt d badging apk路径 |findstr launc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RSA">
-<meta property="og:url" content="https://xhongyan.github.io/y/2023/01/30/RSA/index.html">
+<meta property="og:title" content="adb常用命令">
+<meta property="og:url" content="https://xhongyan.github.io/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="y的博客">
-<meta property="og:description" content="一、简介1977年，三位数学家Rivest、Shamir 和 Adleman 设计了一种算法，可以实现非对称加密。这种算法用他们三个人的名字命名，叫做RSA算法RSA通途：1、用于加密（公钥加密、私钥解密），而且主要用于加密对称密钥，因为RSA加解密较慢。2、用于数字签名。私钥签名，公钥签名验证 二、算法原理RSA公开密钥密码体制的原理是：根据数论，寻求两个大素数比较简单，而将它们的乘积进行因式分">
+<meta property="og:description" content="adb查看手机包的信息adb shell dumpsys package packagename  获取安卓某个手机当前窗口焦点信息adb shell dumpsys window | findstr mCurrentFocus  判断当前包是否启动adb shell ps -A|findstr 包名  获取activity:aapt d badging apk路径 |findstr launc">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://xhongyan.github.io/y/2023/01/30/RSA/images/rsa/RSA.png">
-<meta property="article:published_time" content="2023-01-30T11:50:28.000Z">
-<meta property="article:modified_time" content="2023-02-02T02:08:31.273Z">
+<meta property="article:published_time" content="2022-02-02T11:50:28.000Z">
+<meta property="article:modified_time" content="2023-02-06T12:08:05.311Z">
 <meta property="article:author" content="y">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="命令">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xhongyan.github.io/y/2023/01/30/RSA/images/rsa/RSA.png">
   
     <link rel="alternate" href="/y/atom.xml" title="y的博客" type="application/atom+xml">
   
@@ -69,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-RSA" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-adb常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/y/2023/01/30/RSA/" class="article-date">
-  <time datetime="2023-01-30T11:50:28.000Z" itemprop="datePublished">2023-01-30</time>
+    <a href="/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2022-02-02T11:50:28.000Z" itemprop="datePublished">2022-02-02</time>
 </a>
     
   </div>
@@ -83,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      RSA
+      adb常用命令
     </h1>
   
 
@@ -91,57 +89,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><p>1977年，三位数学家Rivest、Shamir 和 Adleman 设计了一种算法，可以实现非对称加密。这种算法用他们三个人的名字命名，叫做RSA算法<br>RSA通途：<br>1、用于加密（公钥加密、私钥解密），而且主要用于加密对称密钥，因为RSA加解密较慢。<br>2、用于数字签名。私钥签名，公钥签名验证</p>
-<h1 id="二、算法原理"><a href="#二、算法原理" class="headerlink" title="二、算法原理"></a>二、算法原理</h1><p>RSA公开密钥密码体制的原理是：根据数论，寻求两个大素数比较简单，而将它们的乘积进行因式分解却极其困难，因此可以将乘积公开作为加密密钥。</p>
-<h1 id="三、算法描述"><a href="#三、算法描述" class="headerlink" title="三、算法描述"></a>三、算法描述</h1><p><img src="images/rsa/RSA.png" alt="RSA"></p>
-<h1 id="四、python实现RSA算法"><a href="#四、python实现RSA算法" class="headerlink" title="四、python实现RSA算法"></a>四、python实现RSA算法</h1><pre><code>class RSA_COMMON(object):
-
-    rsa_id = &quot;&quot;
-    rsa_public = &quot;&quot;
-
-
-    def __init__(self):
-        text = self.read_key(config.public_path)
-        RSA_COMMON.rsa_public = text
-
-    def encryption(self, text: str):
-        #公钥
-        public_key = RSA_COMMON.rsa_public
-        # 字符串指定编码（转为bytes）
-        text = text.encode(&#39;utf-8&#39;)
-        # 构建公钥对象
-        cipher_public = PKCS1_v1_5.new(RSA.importKey(public_key))
-        # 加密（bytes）
-        text_encrypted = cipher_public.encrypt(text)
-        return text_encrypted
-
-
-    def decryption(self, text:bytes):
-        #私钥
-        private_key = self.read_key(config.private_path)
-        # 构建私钥对象
-        cipher_private = PKCS1_v1_5.new(RSA.importKey(private_key))
-        # 解密（bytes）
-        text_decrypted = cipher_private.decrypt(text, Random.new().read)
-        # 解码为字符串
-        text_decrypted = text_decrypted.decode()
-        return text_decrypted
-
-
-
-    def read_key(self, pem_path) -&gt; bytes:
-        with open(pem_path, &quot;rb&quot;) as x:
-            b = x.read()
-            return b
-</code></pre>
+        <ul>
+<li><p>adb查看手机包的信息<br>adb shell dumpsys package packagename</p>
+</li>
+<li><p>获取安卓某个手机当前窗口焦点信息<br>adb shell dumpsys window | findstr mCurrentFocus</p>
+</li>
+<li><p>判断当前包是否启动<br>adb shell ps -A|findstr 包名</p>
+</li>
+<li><p>获取activity:<br>aapt d badging apk路径 |findstr launchable</p>
+</li>
+<li><p>杀死app<br>adb -s S2D0218C11001483 shell am force-stop packagename</p>
+</li>
+<li><p>启动app<br>adb -s S2D0218C11001483 shell am start packagename/Activityname</p>
+</li>
+</ul>
+<ul>
+<li>切换手机的输入法为搜狗输入法<br>adb -s S2D0218C11001483  shell ime set com.sohu.inputmethod.sogou/.SogouIME</li>
+</ul>
+<ul>
+<li><p>直接安装存在手机上的apk<br>adb shell pm install /sdcard/test/bypath/test.apk</p>
+</li>
+<li><p>安装存在电脑上的apk<br>adb  install path</p>
+</li>
+</ul>
+<ul>
+<li>adb shell pm list packages [-f] [-d] [-e] [-s] [-3] [-i] [-u] [–user USER_ID] [FILTER]<br>不使用参数：adb shell pm list packages，打印设备/模拟器上的所有软件包<br>不使用参数：adb shell pm list packages，打印设备/模拟器上的所有软件包<br>使用-f参数：adb shell pm list packages -f,输出包和包相关联的文件<br>使用-d参数：adb shell pm list packages -d,只输出禁用的包。由于本机禁用没有，输出为空。<br>使用-e参数：adb shell pm list packages -e,只输出启用的包。<br>使用-s参数：adb shell pm list packages -s,只输出系统的包。<br>使用-3参数：adb shell pm list packages -3,只输出第三方的包。<br>使用-i参数：adb shell pm list packages -i,只输出包和安装信息（安装来源）。<br>使用-u参数：adb shell pm list packages -u,只输出包和未安装包信息（安装来源）。<br>使用–user参数：adb shell pm list packages –user <USER_ID>，根据用户id查询用户的空间的所有包，USER_ID代表当前连接设备的顺序，从零开始：<br>adb shell pm path 包名： 通过包名获取路径<br>adb shell pm list packages -f : 输出所有的包名和路径（可以通过pull 拉取apk）</li>
+</ul>
+<ul>
+<li><p>清缓存<br>adb shell pm clear 包名</p>
+</li>
+<li><p>覆盖安装命令：<br>adb install -r apk</p>
+</li>
+<li><p>wifi相关，需要root手机<br>开启wifi<br>adb shell svc wifi enable<br>关闭wif<br>adb shell svc wifi disable<br>查看wif<br>adb shell dumpsys wifi | findstr curState</p>
+</li>
+<li><p>adb日志<br>adb logcat 将日志输出到屏幕，并且会一直打印<br>adb logcat -c 清除手机日志<br>adb logcat -d 将日志输出到屏幕，非阻塞，不会持续打印日志</p>
+</li>
+</ul>
+<ul>
+<li>设置存储权限<br>adb shell pm grant com.test android.permission.WRITE_EXTERNAL_STORAGE<br>#腾讯管家，只开写的权限，会导致病毒库更新失败，清理病毒文件失败</li>
+</ul>
+<ul>
+<li>移除指定权限<br>命令：adb shell pm revoke [packageName] [permissionName]<br>用途：移除packageName应用的permissionName权限（能够同时移除多项权限）。<br>命令使用示例（以下为删除包名为cn.aaa.bbb 的相机权限）：<br>adb shell pm revoke cn.aaa.bbb android.permission.CAMERA</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="cldsrrno60000dwvf0s4pcaej" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cldsrrnob0001dwvfasvw3njg" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
 
     </footer>
   </div>
@@ -149,19 +146,19 @@
     
 <nav id="article-nav">
   
-    <a href="/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/y/2022/11/15/python%E4%B9%8Bsocket/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          有序数组，每个数成对出现，其中有一个数只出现一次，logn查找这个数
+          python之socket
         
       </div>
     </a>
   
   
-    <a href="/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/y/2022/02/02/%E7%AE%97%E6%B3%95_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">决策树简介</div>
+      <div class="article-nav-title">使用迭代器或者生成器生成斐波那契数列</div>
     </a>
   
 </nav>

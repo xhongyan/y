@@ -105,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" data-id="cldsr6k2h0005swvfeklfbvpg" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" data-id="cldsrrnoh0008dwvfcczc8iif" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -186,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="cldsr6k260000swvf38d94soz" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="cldsrrno60000dwvf0s4pcaej" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -253,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="cldsr6k2g0004swvfebxi6qln" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="cldsrrnof0004dwvfheloh39o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -297,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="cldsr6k2m0009swvf3pyf5w01" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="cldsrrnok000cdwvfdc1y8bqy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -381,10 +381,90 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="cldsr6k2b0001swvf5vgl2qds" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="cldsrrnoe0003dwvfcbvwc692" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-adb常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2022-02-02T11:50:28.000Z" itemprop="datePublished">2022-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">adb常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>adb查看手机包的信息<br>adb shell dumpsys package packagename</p>
+</li>
+<li><p>获取安卓某个手机当前窗口焦点信息<br>adb shell dumpsys window | findstr mCurrentFocus</p>
+</li>
+<li><p>判断当前包是否启动<br>adb shell ps -A|findstr 包名</p>
+</li>
+<li><p>获取activity:<br>aapt d badging apk路径 |findstr launchable</p>
+</li>
+<li><p>杀死app<br>adb -s S2D0218C11001483 shell am force-stop packagename</p>
+</li>
+<li><p>启动app<br>adb -s S2D0218C11001483 shell am start packagename/Activityname</p>
+</li>
+</ul>
+<ul>
+<li>切换手机的输入法为搜狗输入法<br>adb -s S2D0218C11001483  shell ime set com.sohu.inputmethod.sogou/.SogouIME</li>
+</ul>
+<ul>
+<li><p>直接安装存在手机上的apk<br>adb shell pm install /sdcard/test/bypath/test.apk</p>
+</li>
+<li><p>安装存在电脑上的apk<br>adb  install path</p>
+</li>
+</ul>
+<ul>
+<li>adb shell pm list packages [-f] [-d] [-e] [-s] [-3] [-i] [-u] [–user USER_ID] [FILTER]<br>不使用参数：adb shell pm list packages，打印设备/模拟器上的所有软件包<br>不使用参数：adb shell pm list packages，打印设备/模拟器上的所有软件包<br>使用-f参数：adb shell pm list packages -f,输出包和包相关联的文件<br>使用-d参数：adb shell pm list packages -d,只输出禁用的包。由于本机禁用没有，输出为空。<br>使用-e参数：adb shell pm list packages -e,只输出启用的包。<br>使用-s参数：adb shell pm list packages -s,只输出系统的包。<br>使用-3参数：adb shell pm list packages -3,只输出第三方的包。<br>使用-i参数：adb shell pm list packages -i,只输出包和安装信息（安装来源）。<br>使用-u参数：adb shell pm list packages -u,只输出包和未安装包信息（安装来源）。<br>使用–user参数：adb shell pm list packages –user <USER_ID>，根据用户id查询用户的空间的所有包，USER_ID代表当前连接设备的顺序，从零开始：<br>adb shell pm path 包名： 通过包名获取路径<br>adb shell pm list packages -f : 输出所有的包名和路径（可以通过pull 拉取apk）</li>
+</ul>
+<ul>
+<li><p>清缓存<br>adb shell pm clear 包名</p>
+</li>
+<li><p>覆盖安装命令：<br>adb install -r apk</p>
+</li>
+<li><p>wifi相关，需要root手机<br>开启wifi<br>adb shell svc wifi enable<br>关闭wif<br>adb shell svc wifi disable<br>查看wif<br>adb shell dumpsys wifi | findstr curState</p>
+</li>
+<li><p>adb日志<br>adb logcat 将日志输出到屏幕，并且会一直打印<br>adb logcat -c 清除手机日志<br>adb logcat -d 将日志输出到屏幕，非阻塞，不会持续打印日志</p>
+</li>
+</ul>
+<ul>
+<li>设置存储权限<br>adb shell pm grant com.test android.permission.WRITE_EXTERNAL_STORAGE<br>#腾讯管家，只开写的权限，会导致病毒库更新失败，清理病毒文件失败</li>
+</ul>
+<ul>
+<li>移除指定权限<br>命令：adb shell pm revoke [packageName] [permissionName]<br>用途：移除packageName应用的permissionName权限（能够同时移除多项权限）。<br>命令使用示例（以下为删除包名为cn.aaa.bbb 的相机权限）：<br>adb shell pm revoke cn.aaa.bbb android.permission.CAMERA</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xhongyan.github.io/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cldsrrnob0001dwvfasvw3njg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
 
     </footer>
   </div>
@@ -452,7 +532,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/02/02/%E7%AE%97%E6%B3%95_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" data-id="cldsr6k2k0008swvfb7xzfc2q" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/02/02/%E7%AE%97%E6%B3%95_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" data-id="cldsrrnoi000adwvf3x2vbc9o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -507,7 +587,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2021/03/15/web%E5%92%8C%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cldsr6k2f0003swvff18e06y5" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2021/03/15/web%E5%92%8C%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cldsrrnog0005dwvff37bfn0a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -532,7 +612,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
     </div>
   </div>
 
@@ -542,7 +622,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/y/tags/python/" style="font-size: 20px;">python</a> <a href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/y/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+      <a href="/y/tags/python/" style="font-size: 20px;">python</a> <a href="/y/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/y/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a>
     </div>
   </div>
 
