@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>排序算法 | y的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="体验了一下chatgpt， 感觉真的很强大…咱们要努力哦 1、冒泡排序时间复杂度n的平方 123456789101112def sort_function(lists):    &quot;&quot;&quot;    冒泡排序    @param lists:    @return:    &quot;&quot;&quot;    lens &#x3D; len(lists)    for j in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法">
+<meta property="og:url" content="https://xhongyan.github.io/y/2023/02/20/sort/index.html">
+<meta property="og:site_name" content="y的博客">
+<meta property="og:description" content="体验了一下chatgpt， 感觉真的很强大…咱们要努力哦 1、冒泡排序时间复杂度n的平方 123456789101112def sort_function(lists):    &quot;&quot;&quot;    冒泡排序    @param lists:    @return:    &quot;&quot;&quot;    lens &#x3D; len(lists)    for j in">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-20T02:07:03.490Z">
+<meta property="article:modified_time" content="2023-02-20T02:07:56.859Z">
+<meta property="article:author" content="y">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/y/atom.xml" title="y的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/y/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/y/" id="logo">y的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/y/">Home</a>
+        
+          <a class="main-nav-link" href="/y/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/y/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xhongyan.github.io/y"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sort" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/y/2023/02/20/sort/" class="article-date">
+  <time datetime="2023-02-20T02:07:03.490Z" itemprop="datePublished">2023-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      排序算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>体验了一下chatgpt， 感觉真的很强大…<br>咱们要努力哦</p>
+<h1 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h1><p>时间复杂度n的平方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sort_function</span>(<span class="params">lists</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    冒泡排序</span></span><br><span class="line"><span class="string">    @param lists:</span></span><br><span class="line"><span class="string">    @return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    lens = <span class="built_in">len</span>(lists)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(lens):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(lens-j-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> lists[i]&gt;lists[i+<span class="number">1</span>]:</span><br><span class="line">                lists[i], lists[i+<span class="number">1</span>] = lists[i+<span class="number">1</span>], lists[i]</span><br><span class="line">    <span class="keyword">return</span> lists</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、快速排序"><a href="#2、快速排序" class="headerlink" title="2、快速排序"></a>2、快速排序</h1><p>最好nlogn， 最坏n的平方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quick_sort</span>(<span class="params">lists</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    快速排序, 最好nlogn， 最坏n的平方</span></span><br><span class="line"><span class="string">    @param lists:</span></span><br><span class="line"><span class="string">    @return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    n = <span class="built_in">len</span>(lists)</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">list</span></span><br><span class="line">    baseline = lists[<span class="number">0</span>]</span><br><span class="line">    left = []</span><br><span class="line">    right = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(lists)):</span><br><span class="line">        <span class="keyword">if</span> lists[i] &lt; baseline:</span><br><span class="line">            left.append(lists[i])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right.append(lists[i])</span><br><span class="line">    <span class="keyword">return</span> quick_sort(left) + [baseline] + quick_sort(right)</span><br></pre></td></tr></table></figure>
+
+<p>用chatgpt优化了一下，还告诉了我优化的原因，惊艳到我了，自己体会吧，哈哈哈</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quick_sort_chatgpt</span>(<span class="params">lists, left, right</span>):</span><br><span class="line">    <span class="keyword">if</span> left &gt;= right:</span><br><span class="line">        <span class="keyword">return</span> lists</span><br><span class="line">    key = lists[left]</span><br><span class="line">    low = left</span><br><span class="line">    high = right</span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">         <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[right] &gt;= key:</span><br><span class="line">             right -= <span class="number">1</span></span><br><span class="line">         lists[left] = lists[right]</span><br><span class="line">         <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[left] &lt;= key:</span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">         lists[right] = lists[left]</span><br><span class="line">    lists[left] = key</span><br><span class="line">    quick_sort_chatgpt(lists, low, left - <span class="number">1</span>)</span><br><span class="line">    quick_sort_chatgpt(lists, left + <span class="number">1</span>, high)</span><br><span class="line">    <span class="keyword">return</span> lists</span><br></pre></td></tr></table></figure>
+
+<h1 id="3、归并排序"><a href="#3、归并排序" class="headerlink" title="3、归并排序"></a>3、归并排序</h1><p>算法复杂度Logn</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">merge_sort</span>(<span class="params">arr</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    归并排序</span></span><br><span class="line"><span class="string">    @param arr:</span></span><br><span class="line"><span class="string">    @return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    n = <span class="built_in">len</span>(arr)</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> arr</span><br><span class="line">    mid = n // <span class="number">2</span></span><br><span class="line">    left_arr = merge_sort(arr[:mid])</span><br><span class="line">    right_arr = merge_sort(arr[mid:])</span><br><span class="line">    <span class="keyword">return</span> merge(left_arr, right_arr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">merge</span>(<span class="params">left_arr, right_arr</span>):</span><br><span class="line">    result = []</span><br><span class="line">    left_len = <span class="built_in">len</span>(left_arr)</span><br><span class="line">    right_len = <span class="built_in">len</span>(right_arr)</span><br><span class="line">    left_index = <span class="number">0</span></span><br><span class="line">    right_index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> left_index &lt; left_len <span class="keyword">and</span> right_index &lt; right_len:</span><br><span class="line">        <span class="keyword">if</span> left_arr[left_index] &lt; right_arr[right_index]:</span><br><span class="line">            result.append(left_arr[left_index])</span><br><span class="line">            left_index += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(right_arr[right_index])</span><br><span class="line">            right_index += <span class="number">1</span></span><br><span class="line">    result += left_arr[left_index:]</span><br><span class="line">    result += right_arr[right_index:]</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xhongyan.github.io/y/2023/02/20/sort/" data-id="clec6i2bw0005acvf52hggedg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">有序数组，每个数成对出现，其中有一个数只出现一次，logn查找这个数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/y/tags/python/" style="font-size: 20px;">python</a> <a href="/y/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 13.33px;">机器学习</a> <a href="/y/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.67px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/y/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/y/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/y/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/y/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/y/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/y/2023/02/20/sort/">排序算法</a>
+          </li>
+        
+          <li>
+            <a href="/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/">有序数组，每个数成对出现，其中有一个数只出现一次，logn查找这个数</a>
+          </li>
+        
+          <li>
+            <a href="/y/2023/01/30/RSA/">RSA</a>
+          </li>
+        
+          <li>
+            <a href="/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/">决策树简介</a>
+          </li>
+        
+          <li>
+            <a href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">随机森林</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 y<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/y/" class="mobile-nav-link">Home</a>
+  
+    <a href="/y/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/y/fancybox/jquery.fancybox.css">
+
+  
+<script src="/y/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/y/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

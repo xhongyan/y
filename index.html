@@ -64,6 +64,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sort" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/y/2023/02/20/sort/" class="article-date">
+  <time datetime="2023-02-20T02:07:03.490Z" itemprop="datePublished">2023-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/y/2023/02/20/sort/">排序算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>体验了一下chatgpt， 感觉真的很强大…<br>咱们要努力哦</p>
+<h1 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h1><p>时间复杂度n的平方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sort_function</span>(<span class="params">lists</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    冒泡排序</span></span><br><span class="line"><span class="string">    @param lists:</span></span><br><span class="line"><span class="string">    @return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    lens = <span class="built_in">len</span>(lists)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(lens):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(lens-j-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> lists[i]&gt;lists[i+<span class="number">1</span>]:</span><br><span class="line">                lists[i], lists[i+<span class="number">1</span>] = lists[i+<span class="number">1</span>], lists[i]</span><br><span class="line">    <span class="keyword">return</span> lists</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、快速排序"><a href="#2、快速排序" class="headerlink" title="2、快速排序"></a>2、快速排序</h1><p>最好nlogn， 最坏n的平方</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quick_sort</span>(<span class="params">lists</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    快速排序, 最好nlogn， 最坏n的平方</span></span><br><span class="line"><span class="string">    @param lists:</span></span><br><span class="line"><span class="string">    @return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    n = <span class="built_in">len</span>(lists)</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">list</span></span><br><span class="line">    baseline = lists[<span class="number">0</span>]</span><br><span class="line">    left = []</span><br><span class="line">    right = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(lists)):</span><br><span class="line">        <span class="keyword">if</span> lists[i] &lt; baseline:</span><br><span class="line">            left.append(lists[i])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right.append(lists[i])</span><br><span class="line">    <span class="keyword">return</span> quick_sort(left) + [baseline] + quick_sort(right)</span><br></pre></td></tr></table></figure>
+
+<p>用chatgpt优化了一下，还告诉了我优化的原因，惊艳到我了，自己体会吧，哈哈哈</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quick_sort_chatgpt</span>(<span class="params">lists, left, right</span>):</span><br><span class="line">    <span class="keyword">if</span> left &gt;= right:</span><br><span class="line">        <span class="keyword">return</span> lists</span><br><span class="line">    key = lists[left]</span><br><span class="line">    low = left</span><br><span class="line">    high = right</span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">         <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[right] &gt;= key:</span><br><span class="line">             right -= <span class="number">1</span></span><br><span class="line">         lists[left] = lists[right]</span><br><span class="line">         <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> lists[left] &lt;= key:</span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">         lists[right] = lists[left]</span><br><span class="line">    lists[left] = key</span><br><span class="line">    quick_sort_chatgpt(lists, low, left - <span class="number">1</span>)</span><br><span class="line">    quick_sort_chatgpt(lists, left + <span class="number">1</span>, high)</span><br><span class="line">    <span class="keyword">return</span> lists</span><br></pre></td></tr></table></figure>
+
+<h1 id="3、归并排序"><a href="#3、归并排序" class="headerlink" title="3、归并排序"></a>3、归并排序</h1><p>算法复杂度Logn</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">merge_sort</span>(<span class="params">arr</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    归并排序</span></span><br><span class="line"><span class="string">    @param arr:</span></span><br><span class="line"><span class="string">    @return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    n = <span class="built_in">len</span>(arr)</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> arr</span><br><span class="line">    mid = n // <span class="number">2</span></span><br><span class="line">    left_arr = merge_sort(arr[:mid])</span><br><span class="line">    right_arr = merge_sort(arr[mid:])</span><br><span class="line">    <span class="keyword">return</span> merge(left_arr, right_arr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">merge</span>(<span class="params">left_arr, right_arr</span>):</span><br><span class="line">    result = []</span><br><span class="line">    left_len = <span class="built_in">len</span>(left_arr)</span><br><span class="line">    right_len = <span class="built_in">len</span>(right_arr)</span><br><span class="line">    left_index = <span class="number">0</span></span><br><span class="line">    right_index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> left_index &lt; left_len <span class="keyword">and</span> right_index &lt; right_len:</span><br><span class="line">        <span class="keyword">if</span> left_arr[left_index] &lt; right_arr[right_index]:</span><br><span class="line">            result.append(left_arr[left_index])</span><br><span class="line">            left_index += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(right_arr[right_index])</span><br><span class="line">            right_index += <span class="number">1</span></span><br><span class="line">    result += left_arr[left_index:]</span><br><span class="line">    result += right_arr[right_index:]</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xhongyan.github.io/y/2023/02/20/sort/" data-id="clec6i2bw0005acvf52hggedg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-算法_找到没有重复的" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" class="article-date">
@@ -105,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" data-id="cldv34a0h000aicvf0ezx3up5" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" data-id="clec6i2by0008acvf6qbk6bry" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -186,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="cldv34a090001icvfh7q17t8i" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="clec6i2bq0001acvf33a3b292" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -229,15 +279,15 @@
 <h1 id="6、决策树是否只针对离散数据？"><a href="#6、决策树是否只针对离散数据？" class="headerlink" title="6、决策树是否只针对离散数据？"></a>6、决策树是否只针对离散数据？</h1><p>否。我们可以把连续属性离散化，然后应用离散处理的方式。最简单的策略是采用二分法对连续属性进行处理，这正 C4.5 决策树算法中采用的机制 </p>
 <h1 id="7、应用场景"><a href="#7、应用场景" class="headerlink" title="7、应用场景"></a>7、应用场景</h1><p>现在决策树已经比较成熟，也运用到了各个不同的领域中，其中有人工智能、医疗诊断、规划理论、认知科学以及工程、数据挖掘等等。毕竟只有科学的决策是实践的基础，也是管理者的重要职责之一。例如在实践中，已经制定出很多可行性的方案，而且企业内、外部环境等条件都掌握，却还是有相对不确定的因素存在。执行每一个方案都会有不同的结果，对决策者来说有胜算也有风险，所以采用决策树来解决这些问题，应该是比较明智的选择。<br>金融行业可以用决策树做贷款风险评估<br>保险行业可以用决策树做险种推广预测<br>医疗行业可以用决策树生成辅助诊断处置模型等等,</p>
 <h1 id="8、决策树的优势"><a href="#8、决策树的优势" class="headerlink" title="8、决策树的优势"></a>8、决策树的优势</h1><p>建立决策树模型过程中比较简单，而且算法、决策规则很容易理解。采用决策树模型可以给用户提供可视化和直观化，全面掌握具体情况。决策树的应用范围比较广，无论是分类还是回归，都是可以使用决策树，同时还能根据类别进行不同的分类。决策树即可以处理数值型的样本，还能处理连续的样本。<br>决策树适用范围和决策树的优势，大家已经有了了解。虽然决策树有很多的优势，当然也有它的一些缺点，决策树总是会在训练数据时，出现比较复杂的结构，就需要进行大量的过拟合。不过用户可以通过剪枝的方式，来缓解过拟合，例如限制树的高度，或者是规定叶子节点中的最少样本数量等等。</p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>信息增益等介绍及实例<br>熵：就是随机变量不确定性的度量。熵越大，随机变量的不确定性就越大<br><img src="images/matching_learning/shang.png" alt="熵"></p>
-<p>信息增益(ID3)：表示特征X使得类Y的信息的不确定性减少的程度<br>（数据混在一起的时候有一个熵值A，经过分支后，算出分支后的节点的熵值B1,B2, 那么信息增益就是A-B1-B2）<br><img src="images/matching_learning/info.png" alt="信息增益"></p>
-<p>决策树构造实例<br>数据：14天打球情况<br>特征：4种环境变化<br>目标：构造决策树<br><img src="images/matching_learning/ex1.png" alt="例子"></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>信息增益等介绍及实例<br>熵：就是随机变量不确定性的度量。熵越大，随机变量的不确定性就越大<br><img src="images/matching_learning/shang.png" alt="shang"></p>
+<p>信息增益(ID3)：表示特征X使得类Y的信息的不确定性减少的程度<br>（数据混在一起的时候有一个熵值A，经过分支后，算出分支后的节点的熵值B1,B2, 那么信息增益就是A-B1-B2）<br><img src="images/matching_learning/info.png" alt="info"></p>
+<p>决策树构造实例<br>数据：14天打球情况<br>特征：4种环境变化<br>目标：构造决策树<br><img src="images/matching_learning/ex1.png" alt="ex1"></p>
 <p>谁来当根节点：outlook ? temperature? humidity?windy?<br>这个时候我们可以通过计算信息增益的方式确定。<br>比如天气：</p>
 <p>计算步骤：</p>
 <ol>
-<li><p>原始数据熵值直接根据分类play计算。14天有有9天打球，5天不打球，则熵为：<br><img src="images/matching_learning/%E8%AE%A1%E7%AE%971.png"></p>
+<li><p>原始数据熵值直接根据分类play计算。14天有有9天打球，5天不打球，则熵为：<br><img src="images/matching_learning/%E8%AE%A1%E7%AE%971.png" alt="1"></p>
 </li>
-<li><p>outlook=sunny熵值计算：<br><img src="images/matching_learning/%E8%AE%A1%E7%AE%972.png"></p>
+<li><p>outlook=sunny熵值计算：<br><img src="images/matching_learning/%E8%AE%A1%E7%AE%972.png" alt="2"></p>
 </li>
 </ol>
 <p>outlook=overcast: 0<br>outlook=rainy: 0.971<br>因为outlook分别为sunny,overcast,rainy的概率为：5/14，4/14，5/14<br>所以outlook划分后熵为：<br>5/14<em>0.971+4/14</em>0+5/14*0.971 = 0.693</p>
@@ -248,12 +298,12 @@
 <p>信息增益率：信息增益/自身熵值 (c4.5算法）</p>
 <p>目前常用的是cart算法，使用gini系数当作衡量标准。</p>
 <p>CART是在给定输入随机变量X的条件下输出随机变量Y的条件概率分布的学习方法</p>
-<p><img src="images/matching_learning/%E8%AE%A1%E7%AE%973.png" alt="gini系数"></p>
+<p><img src="images/matching_learning/%E8%AE%A1%E7%AE%973.png" alt="3"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="cldv34a0g0008icvfghi0dhdk" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="clec6i2c5000nacvf921tdn7u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -297,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="cldv34a0l000ficvfcho810hi" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="clec6i2c6000oacvf4tga0ds1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -381,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="cldv34a0d0004icvf4ylj0irs" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="clec6i2bu0003acvfd5a9gusd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -431,7 +481,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/11/10/AES/" data-id="cldv34a030000icvfa6jwae3z" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/11/10/AES/" data-id="clec6i2bl0000acvfc14l8omg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -511,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="cldv34a0c0003icvf24u036on" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="clec6i2bv0004acvf7xq35iov" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
@@ -582,7 +632,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/02/02/%E7%AE%97%E6%B3%95_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" data-id="cldv34a0i000dicvf3w1z87xt" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/02/02/%E7%AE%97%E6%B3%95_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" data-id="clec6i2c0000cacvfd75u2gxd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -637,7 +687,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2021/03/15/web%E5%92%8C%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cldv34a0d0005icvfgb428v1z" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2021/03/15/web%E5%92%8C%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="clec6i2bz0009acvf50c81my7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -672,7 +722,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/y/tags/python/" style="font-size: 20px;">python</a> <a href="/y/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">机器学习</a> <a href="/y/tags/%E7%AE%97%E6%B3%95/" style="font-size: 15px;">算法</a>
+      <a href="/y/tags/python/" style="font-size: 20px;">python</a> <a href="/y/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 13.33px;">机器学习</a> <a href="/y/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.67px;">算法</a>
     </div>
   </div>
 
@@ -694,6 +744,10 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
       <ul>
         
           <li>
+            <a href="/y/2023/02/20/sort/">排序算法</a>
+          </li>
+        
+          <li>
             <a href="/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/">有序数组，每个数成对出现，其中有一个数只出现一次，logn查找这个数</a>
           </li>
         
@@ -707,10 +761,6 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
         
           <li>
             <a href="/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">随机森林</a>
-          </li>
-        
-          <li>
-            <a href="/y/2022/11/15/python%E4%B9%8Bsocket/">python之socket</a>
           </li>
         
       </ul>
