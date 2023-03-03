@@ -86,12 +86,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>容器真的是很好玩，很方便，爱了爱了，今天用docker 搭建了jenkins, sonarqube, 然后完成了cicd，<br>代码更新时自动化触发jenkins构建，自动sonar扫描，结果同步到sonarqube上，可太棒了<br>博客待更新</p>
+        <h1 id="docker流程介绍"><a href="#docker流程介绍" class="headerlink" title="docker流程介绍"></a>docker流程介绍</h1><p>docker run –name jenkins -u root –rm  -d -p 7005:8080 -p 50000:50000 -v /data/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts</p>
+<p>启动一个容器的流程：</p>
+<ol>
+<li>当使用 Docker 命令行工具执行如上命令时，Docker 客户端会将其转换为合适的 REST API 发送到 Docker deamon</li>
+<li>daemon 接受到创建新容器的请求，通过 gRPC 向 containerd 发起调用</li>
+<li>containerd 并不负责创建容器，containerd 将 Docker 镜像转换为 OCI bundle 然后让 runc 基于此创建一个新的容器</li>
+<li>runc 与操作系统API进行通信，基于 Namespace CGroup 等创建容器，容器进程作为 runc 的子进程启动，启动完毕后， runc 会退出</li>
+</ol>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>用docker 搭建了jenkins, sonarqube, jenkins, 然后完成了cicd，<br>代码更新时自动化触发jenkins构建，自动sonar扫描，结果同步到sonarqube!</p>
+<h1 id="sonarqube简介"><a href="#sonarqube简介" class="headerlink" title="sonarqube简介"></a>sonarqube简介</h1><p>SonarQube 是一个开源的代码分析平台, 用来持续分析和评测项目源代码的质量。 通过SonarQube我们可以检测出项目中重复代码， 潜在bug， 代码规范，安全性漏洞等问题， 并通过SonarQube web UI展示出来。</p>
+<p>#搭建步骤<br>docker-compose 创建jenkins、sonarqube、pg<br>官网说明文档：<br><a target="_blank" rel="noopener" href="https://docs.sonarqube.org/latest/analyzing-source-code/overview/">https://docs.sonarqube.org/latest/analyzing-source-code/overview/</a></p>
+<ol>
+<li>创建项目目录<br>mkdir -p /usr/local/sonarqube &amp;&amp; cd /usr/local/sonarqube<br>创建所有的映射文件<br>mkdir -p /usr/local/sonarqube/postgres &amp;&amp; <br>mkdir -p /usr/local/sonarqube/data &amp;&amp; <br>mkdir -p /usr/local/sonarqube/extensions &amp;&amp; <br>mkdir -p /usr/local/sonarqube/logs &amp;&amp; <br>mkdir -p /usr/local/sonarqube/conf<br>chmod 777 /usr/local/sonarqube/postgres &amp;&amp; <br>chmod 777 /usr/local/sonarqube/data &amp;&amp; <br>chmod 777 /usr/local/sonarqube/extensions &amp;&amp; <br>chmod 777 /usr/local/sonarqube/logs &amp;&amp; <br>chmod 777 /usr/local/sonarqube/conf</li>
+</ol>
+<ol start="2">
+<li><p>其他配置<br>sonarqube里面用了ES, 所以有配置要求<br>具体查看官网说明：<a target="_blank" rel="noopener" href="https://docs.sonarqube.org/latest/requirements/prerequisites-and-overview/">https://docs.sonarqube.org/latest/requirements/prerequisites-and-overview/</a><br>sysctl -w vm.max_map_count=524288<br>sysctl -w fs.file-max=131072<br>#the user running SonarQube can open at least 131072 file descriptors<br>ulimit -n 131072<br>#the user running SonarQube can open at least 8192 threads<br>ulimit -u 8192<br>vm.max_map_count文件包含限制一个进程可以拥有的VMA(虚拟内存区域)的数量<br>file-max表示系统级别的能够打开的文件句柄的数量</p>
+</li>
+<li><p>docker-compose.yml文件编写，包含jenkins、sonarqube、pg配置</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  sonarqube:</span><br><span class="line">    image: sonarqube:9.5.0-community</span><br><span class="line">    container_name: sonarqube</span><br><span class="line">    hostname: sonarqube</span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - sonarnet</span><br><span class="line">    privileged: true</span><br><span class="line">    volumes:</span><br><span class="line">      - /usr/local/sonarqube/data:/opt/sonarqube/data</span><br><span class="line">      - /usr/local/sonarqube/extensions:/opt/sonarqube/extensions</span><br><span class="line">      - /usr/local/sonarqube/logs:/opt/sonarqube/logs</span><br><span class="line">      - /usr/local/sonarqube/conf:/opt/sonarqube/conf</span><br><span class="line">      - /etc/localtime:/etc/localtime:ro</span><br><span class="line">    ports:</span><br><span class="line">      - 9000:9000</span><br><span class="line">    depends_on:</span><br><span class="line">      - postgres</span><br><span class="line">    environment:</span><br><span class="line">      - SONARQUBE_JDBC_USERNAME=sonar</span><br><span class="line">      - SONARQUBE_JDBC_PASSWORD=sonar</span><br><span class="line">      - SONARQUBE_JDBC_URL=jdbc:postgresql://postgres:5432/sonar</span><br><span class="line">    ulimits:</span><br><span class="line">        nproc: 65536</span><br><span class="line">        nofile:</span><br><span class="line">          soft: 65536</span><br><span class="line">          hard: 65536</span><br><span class="line">  postgres:</span><br><span class="line">    image: postgres:12</span><br><span class="line">    container_name: postgres</span><br><span class="line">    restart: always</span><br><span class="line">    networks:</span><br><span class="line">      - sonarnet</span><br><span class="line">    ports:</span><br><span class="line">      - 5432:5432</span><br><span class="line">    volumes:</span><br><span class="line">      - /usr/local/sonarqube/postgres:/var/lib/postgresql/data</span><br><span class="line">    environment:</span><br><span class="line">      - POSTGRES_DB=sonar</span><br><span class="line">      - POSTGRES_USER=sonar</span><br><span class="line">      - POSTGRES_PASSWORD=sonar</span><br><span class="line">  jenkins:</span><br><span class="line">    image: jenkins/jenkins:lts</span><br><span class="line">    container_name: jenkins_web</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 7005:8080</span><br><span class="line">      - 50000:50000</span><br><span class="line">    volumes:</span><br><span class="line">      - /data/jenkins:/var/jenkins_home</span><br><span class="line">      - /var/run/docker.sock:/var/run/docker.sock</span><br><span class="line">    user: root</span><br><span class="line"></span><br><span class="line">networks:</span><br><span class="line">  sonarnet:</span><br><span class="line">    driver: bridge</span><br></pre></td></tr></table></figure>
+
+<p>部分字段说明：<br>• jenkins中的50000端口用于master和slave的通信，8080端口用于前端界面访问。<br>• - /var/run/docker.sock:/var/run/docker.sock:<br>var/run/docker.sock是docker daemon监听的套接字socket，要在docker内部运行docker，要做的只是docker.sock作为卷的情况下运行docker。这样，Jenkins构建项目的时候，为了保证项目环境是干净的， 也需要拉一个docker镜像，把项目放到干净的容器中。</p>
+<ol start="4">
+<li>sonarqube登录后，创建token， 用于后面jenkins访问<br><img src="/y/images/sonar/1.png" alt="1"></li>
+</ol>
+<ol start="5">
+<li>jenkins登录后，系统管理-&gt;系统配置增加sonarqube配置：<br><img src="/y/images/sonar/2.png" alt="2"><br>注意url是刚创建的sonaqube 宿主机ip和容器端口号</li>
+<li>新增token:<br><img src="/y/images/sonar/3.png" alt="3"><br>其中secret为刚刚在sonar上创建的令牌</li>
+<li>jenkins安装sonar_runner插件<br><img src="/y/images/sonar/4.png" alt="4"></li>
+<li>jenkins新建项目，并配置git</li>
+<li>配置webhook(我这里用的是gitee, 所以需要安装gitee插件)， 将url和token填写到gitee对应项目的webhook配置中<br><img src="/y/images/sonar/5.png" alt="5"></li>
+<li>构建步骤配置sonar:<br><img src="/y/images/sonar/6.png" alt="6"><br>sonar.projectName=${JOB_NAME}<br>sonar.projectKey=${JOB_NAME}<br>sonar.sources=./src/main/<br>sonar.exclusions=_ci/<strong>,env/</strong>,vendor/<strong>,src/test/</strong><br>sonar.language=py<br>注意语言根据实际配置。<br>js: sonar.language=js<br>typescript: sonar.language=ts<br>java:<br>sonar.language=java<br>sonar.java.binaries=.<br>go: sonar.language=go<br>python: sonar.language=py</li>
+</ol>
+<p>（<br>启动docker, systemctl start docker， 如果出现错误<br>Error response from daemon: error creating overlay mount to /var/lib/docker/overlay2/d68f1f2d5ec089c36aaf45da5e5cbcec4c452ea95f1dbfc6d449584fa516d219/merged:<br>invalid argument Error: failed to start containers: a1f<br>修改/etc/selinux/config 将SELINUX=disabled 改成 SELINUX=permissive<br>）</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/03/01/docker%20%E4%B9%8B%20jenkins%20%E3%80%81sonarqube/" data-id="clescs12l0004bkvf0ogu2nsl" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/03/01/docker%20%E4%B9%8B%20jenkins%20%E3%80%81sonarqube/" data-id="clesd4ul80004ygvfeyzs6o1q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/docker/" rel="tag">docker</a></li></ul>
@@ -141,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/02/20/sort/" data-id="clescs12p0008bkvfdc8qejkz" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/02/20/sort/" data-id="clesd4ulf000dygvfc662abu7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -194,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" data-id="clescs12t000fbkvfch9o53di" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/02/02/%E7%AE%97%E6%B3%95_%E6%89%BE%E5%88%B0%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84/" data-id="clesd4uli000jygvfaoslbjp8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -275,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="clescs12g0001bkvf3kem8w2z" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/RSA/" data-id="clesd4ul70003ygvfcoo7f527" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -342,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="clescs12r000dbkvf1o4z52zj" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="clesd4ulh000hygvfhj1w2tni" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -386,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="clescs130000sbkvfghsf4ubp" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2023/01/30/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/" data-id="clesd4ull000nygvf0ey17jwt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
@@ -470,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="clescs12m0005bkvf47tf47jj" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/11/15/python%E4%B9%8Bsocket/" data-id="clesd4ule000cygvfaiapc2wf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -520,7 +554,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/11/10/AES/" data-id="clescs12b0000bkvfc1sk4nbt" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/11/10/AES/" data-id="clesd4uky0000ygvffbri4slo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/python/" rel="tag">python</a></li></ul>
@@ -600,7 +634,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="clescs12k0003bkvf426r12us" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/02/02/adb%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="clesd4ul30001ygvf0f4108qm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
@@ -671,7 +705,7 @@ for n in Fab(5):   #等价于调用a=Fab(5) print(next(a))
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xhongyan.github.io/y/2022/02/02/%E7%AE%97%E6%B3%95_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" data-id="clescs12u000hbkvfaquodhgb" class="article-share-link">Share</a>
+      <a data-url="https://xhongyan.github.io/y/2022/02/02/%E7%AE%97%E6%B3%95_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/" data-id="clesd4ulj000kygvfa4kka803" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/y/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
